@@ -61,37 +61,19 @@ app.post("/", (req, res) => {
   request.end();
 
   app.post("/failure", (req, res) => {
-    res.redirect(__dirname + "/")
+    res.redirect(__dirname + "/");
   });
 
   // ***************************************************************************
-  // app.post("/", (req, res) => {
-  //   let firstName = req.body.firstName;
-  //   let lastName = req.body.lastName;
-  //   let email = req.body.email;
-  //
-  //   client.setConfig({
-  //     apiKey: "11e48ba0509a6c90db52d77678bf7bc1-us7",
-  //     server: "us7"
-  //   });
-  //
-  //   const run = async () => {
-  //     const response = await client.lists.addListMember("b8d8c881e0", {
-  //       email_address: email,
-  //       status: "subscribed",
-  //       merge_fields: {
-  //         FNAME: firstName,
-  //         LNAME: lastName
-  //       }
-  //     });
-  //     console.log(response.statusCode);
-  //   };
-  //   run();
-  // ***************************************************************************
 });
 
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, () => {
+  console.log("Server started on port " + port);
 });
 
 
