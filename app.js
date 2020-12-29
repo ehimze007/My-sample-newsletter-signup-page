@@ -42,7 +42,7 @@ app.post("/", (req, res) => {
   const url = "https://us7.api.mailchimp.com/3.0/lists/b8d8c881e0";
   const options = {
     method: "POST",
-    auth: "ehimze007:01e48ba0509a6c90db52d77678bf7bc1-us7"
+    auth: "ehimze007:11e48ba0509a6c90db52d77678bf7bc1-us7"
   };
 
   const request = https.request(url, options, function(response) {
@@ -72,7 +72,7 @@ if (port == null || port == "") {
   port = 3000;
 }
 
-app.listen(port, () => {
+app.listen(port || 3000, () => {
   console.log("Server started on port " + port);
 });
 
